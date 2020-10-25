@@ -1,0 +1,7 @@
+node_modules
+.DS_store
+*.css.map
+*.css
+.settings/
+.vscode
+main.min.js

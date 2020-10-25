@@ -1,0 +1,51 @@
+p {
+  margin-top: 0;
+  &:empty {
+    display: none;
+  }
+}
+
+// Visually Hidden
+.visuallyhidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  .wrapper {
+    --wrapper: #{$wrapper};
+    max-width: $wrapper;
+    width: 95%;
+    margin: 0 auto;
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: 
+        [full-start] $gutter 
+        [gutter-start] calc(50vw - ((var(--wrapper) / 2)) - #{$gutter}) 
+        [wrapper-start col] repeat(3, 1fr [col]) 
+        [wrapper-end col] calc(50vw - ((var(--wrapper) / 2)) - #{$gutter}) 
+        [gutter-end] $gutter 
+        [full-end];
+      > * {
+        grid-column: wrapper-start / wrapper-end;
+      }
+      max-width: unset;
+      width: unset;
+      margin: 0;
+    }
+  }
+
+  .alignwide {
+      grid-column: gutter-start / gutter-end;
+  }
+
+  .alignfull {
+      grid-column: full-start / full-end;
+  }

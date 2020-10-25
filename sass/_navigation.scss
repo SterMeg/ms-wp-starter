@@ -1,0 +1,80 @@
+$menu-breakpoint: '>desktop';
+$menu-link-color: map-get($map: $colors, $key: 'dark');
+$menu-link-background: none;
+$menu-link-hover-color: map-get($map: $colors, $key: 'light');
+$menu-link-hover-background: map-get($map: $colors, $key: 'primary');
+$menu-background: none;
+
+.skiplink {
+    position: absolute;
+    top: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skiplink:focus {
+  top: 40px;
+  width: auto;
+  height: auto;
+  background: #000;
+  border: 1px solid #000;
+  color: #fff;
+  font-size: 2rem;
+  z-index: 10;
+  padding: 10px;
+  display: inline-block;
+}
+
+.flyout-menu {
+  display: none;
+}
+
+ul.menu {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+
+.mobile-menu-button {
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: repeat(3, 10px);
+    @include media($menu-breakpoint) {
+        display: none;
+    }
+    span {
+      position: relative;
+      display: block;
+      height: 3px;
+      width: 30px;
+      background: map-get($map: $colors, $key: 'primary');
+      border-radius: 2px;
+      transform: rotate(0deg);
+      transition: all .25s ease-in-out;
+    }
+}
+
+@for $i from 0 to 3 {
+  .mobile-menu-button span:nth-child(#{$i + 1}) {
+      top: #{$i * 10}px;
+  }
+}
+
+.mobile-menu-button.open span:nth-child(1) {
+    top: 10px;
+    transform: rotate(135deg);
+}
+
+.mobile-menu-button.open span:nth-child(2) {
+    opacity: 0;
+	  transform: translateX(25px);
+}
+
+.mobile-menu-button.open span:nth-child(3) {
+    top: -10px;
+    transform: rotate(-135deg);
+}

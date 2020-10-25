@@ -1,0 +1,14 @@
+// Styles to enqueue into the Gutenberg Editor
+// These are imported separately from the front-end styles 
+// in order to avoid conflicts and enqueue editor specific styles
+
+@import 'normalize';
+@import 'include-media';
+@import 'theme';
+@import 'utility/mixins';
+@import 'utility/variables';
+@import 'utility/setup';
+@import 'typography';
+@import 'navigation';
+@import 'utility';
+@import 'base';

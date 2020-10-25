@@ -1,0 +1,65 @@
+// Map colors imported from theme.json
+$colors: map-get($map: $theme, $key: 'colors');
+
+@each $name, $color in $colors {
+    .has-#{$name}-color {
+        color: $color;
+    }
+    .has-#{$name}-background-color {
+        background-color: $color;
+    }
+}
+
+// Map font sizes imported from theme.json
+$fontSizes: map-get($map: $theme, $key: 'fonts');
+
+@each $name, $fontSize in $fontSizes {
+    .has-#{$name}-font-size {
+        @include font-size($fontSize);
+    }
+}
+
+// DEFAULT BUTTON
+
+// colors
+$background: map-get($map: $colors, $key: 'primary');
+$hover: darken($background, 5%);
+$color: map-get($map: $colors, $key: 'light');
+$button-font-size : map-get($map: $fontSizes, $key: 'large');
+
+$buttonStyles: (
+    'border-radius' : 3px,
+    'display' : inline-flex,
+    'font-weight' : bold,
+    'padding' : 14px 28px,
+    'text-transform' : uppercase
+);
+
+
+// Map button colors
+.wp-block-button__link {
+    @include font-size($button-font-size);
+    @each $name, $buttonStyle in $buttonStyles {
+        #{$name} : #{$buttonStyle}
+    }
+    &:not(.has-text-color) {
+        color: $color;
+    }
+    &:not(.has-background) {
+        background-color: $background;
+        &:hover,
+        &:focus {
+            background-color: $hover;
+        }
+    }
+    @each $name, $color in $colors {
+        &.has-#{$name}-color:hover,
+        &.has-#{$name}-color:focus  {
+            color: $color;
+        }
+        &.has-#{$name}-background-color:hover,
+        &.has-#{$name}-background-color:focus {
+            background-color: darken($color, 5%);
+        }
+    }
+}

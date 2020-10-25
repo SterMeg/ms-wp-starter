@@ -1,0 +1,12 @@
+// Wrapper variables
+$wrapper: 1170px;
+$gutter: 30px;
+
+// Breakpoints and Media Query Mixins?
+$breakpoints: (
+    desktop : 1200px,
+    laptop : 980px,
+    tablet : 768px,
+    phone : 600px
+);
+// add responsive space to theme. create both spacers and padding classes
