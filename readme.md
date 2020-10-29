@@ -1,6 +1,6 @@
 # Starter WordPress theme
 
-This theme is designed to provide an extendable base for a WordPress developer to get up and running with Gutenberg blocks quickly.
+This theme is a work in progress designed to provide an extendable base for a WordPress developer to get up and running with Gutenberg blocks quickly.
 
 ## Theming
 Theme.json contains theme variables that map to both SASS stylesheets and PHP functions in order to set up the appropriate options in the core blocks and their corresponding styles. 
